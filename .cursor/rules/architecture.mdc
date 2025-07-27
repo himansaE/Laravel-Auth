@@ -1,0 +1,12 @@
+# Project Architecture Rules
+
+- This is a Laravel 11 project.
+- Follow the standard MVC (Model-View-Controller) pattern.
+- **Service Layer:** Place complex business logic in Service classes inside the `app/Services/` directory. Controllers should remain thin and focused on handling HTTP requests and responses.
+- **Frontend:** Use Blade templates for all views. Do not use React, Vue, or other SPA frameworks.
+- **Styling:** Use Tailwind CSS for all styling.
+- **Components:** Create reusable UI elements as Blade components in `resources/views/components/`.
+description:
+globs:
+alwaysApply: false
+---

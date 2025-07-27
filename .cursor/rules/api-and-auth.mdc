@@ -1,0 +1,10 @@
+# API & Authentication Rules
+
+- **Authentication:** Use the `laravel/socialite` package for Google OAuth2 authentication.
+- **Google API Client:** Use the `google/apiclient:^2.0` PHP library to interact with all Google APIs (Calendar, Tasks, Gmail).
+- **Token Storage:** Securely store the user's Google `access_token` and `refresh_token` in the `users` table after a successful login.
+- **Error Handling:** All external API calls must be wrapped in `try-catch` blocks to gracefully handle errors.
+description:
+globs:
+alwaysApply: false
+---
