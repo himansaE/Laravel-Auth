@@ -14,6 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'auth' => \App\Http\Middleware\Authenticate::class,
         ]);
+        
+        // Add global middleware to force HTTPS URLs
+        $middleware->web(prepend: [
+            \App\Http\Middleware\ForceHttpsUrls::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

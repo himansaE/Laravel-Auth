@@ -12,14 +12,16 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $googleService = new GoogleApiService($user);
-        $calendarEvents = $googleService->getCalendarEvents();
-        $tasks = $googleService->getTasks();
-        $emails = $googleService->getEmails();
+        
+        // Get full counts from Google APIs
+        $calendarEventsCount = $googleService->getCalendarEventsCount();
+        $tasksCount = $googleService->getTasksCount();
+        $emailsCount = $googleService->getEmailsCount();
 
         return view('dashboard', [
-            'calendarEvents' => $calendarEvents,
-            'tasks' => $tasks,
-            'emails' => $emails,
+            'calendarEventsCount' => $calendarEventsCount,
+            'tasksCount' => $tasksCount,
+            'emailsCount' => $emailsCount,
         ]);
     }
 } 

@@ -12,13 +12,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        if ($request->expectsJson()) {
-            return null;
-        }
-        $appUrl = config('app.url', '/');
-        $redirectUrl = rtrim($appUrl, '/') . '/';
-        // Log the redirect URL to stdout
-        error_log('Redirecting unauthenticated user to: ' . $redirectUrl);
-        return $redirectUrl;
+        return $request->expectsJson() ? null : '/';
     }
 }
